@@ -18,25 +18,25 @@ const skillCategories = [
   {
     title: "AI & Machine Learning",
     icon: <Sparkles className="w-6 h-6" />,
-    skills: ["PyTorch", "TensorFlow", "LLMs", "RAG", "NLP", "OpenAI API"],
+    skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "Deep Learning", "CNN"],
     color: "from-purple-500/20 to-blue-500/20"
   },
   {
-    title: "Frontend Engineering",
-    icon: <Layout className="w-6 h-6" />,
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
+    title: "Engineering & Logic",
+    icon: <Cpu className="w-6 h-6" />,
+    skills: ["Java", "Python", "C/C++", "MySQL", "MongoDB", "Data Structures"],
     color: "from-blue-500/20 to-cyan-500/20"
   },
   {
-    title: "Backend & Systems",
-    icon: <Terminal className="w-6 h-6" />,
-    skills: ["Node.js", "Python", "Go", "PostgreSQL", "Redis", "Docker"],
+    title: "Data & Analysis",
+    icon: <Database className="w-6 h-6" />,
+    skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI", "Excel"],
     color: "from-emerald-500/20 to-teal-500/20"
   },
   {
-    title: "Creative Tools",
-    icon: <Zap className="w-6 h-6" />,
-    skills: ["Figma", "Blender", "After Effects", "Motion Graphics", "UX Design"],
+    title: "Cloud & Deployment",
+    icon: <Globe className="w-6 h-6" />,
+    skills: ["AWS", "Google Cloud", "Intel Tiber", "Git", "Flask", "Docker"],
     color: "from-orange-500/20 to-red-500/20"
   }
 ];

@@ -14,32 +14,32 @@ export default function ProjectsGrid() {
 
   const projects = [
     {
-      title: "Neon Genesis",
-      category: "Web App / E-Commerce",
-      description: "A dark-mode specialized marketplace with real-time bidding.",
-      image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop",
+      title: "AI Traffic Adviser",
+      category: "Computer Vision / Flask",
+      description: "Real-time traffic management using YOLOv8 and Detectron2 for object detection and road damage analysis.",
+      image: "https://images.unsplash.com/photo-1545147986-a9d6f210df77?q=80&w=2070&auto=format&fit=crop",
       year: "2024",
     },
     {
-      title: "Flow State",
-      category: "SaaS Dashboard",
-      description: "Complex data visualization interface for remote teams.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      title: "Seed Classification",
+      category: "Deep Learning / CNN",
+      description: "Automated maize species classification using CNN-based models and custom RGB image datasets.",
+      image: "https://images.unsplash.com/photo-1530513173752-16d47519b5d3?q=80&w=2070&auto=format&fit=crop",
+      year: "2024",
+    },
+    {
+      title: "AMR Prediction",
+      category: "Bioinformatics / ML",
+      description: "Identifying antimicrobial resistance markers in DNA sequences using CNN and SVM classifiers.",
+      image: "https://images.unsplash.com/photo-1532187863486-abf8581ad7d7?q=80&w=2070&auto=format&fit=crop",
       year: "2023",
     },
     {
-      title: "Aura",
-      category: "Mobile Application",
-      description: "Mindfulness and meditation app featuring generative soundscapes.",
-      image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=2070&auto=format&fit=crop",
+      title: "Twitter Clone",
+      category: "Fullstack / Laravel",
+      description: "Dynamic social platform features and optimized MySQL database schemas for user interactions.",
+      image: "https://images.unsplash.com/photo-1611606063065-ee79462e7377?q=80&w=2070&auto=format&fit=crop",
       year: "2023",
-    },
-    {
-      title: "The Vertex",
-      category: "Marketing Site",
-      description: "High-performance WebGL landing page for an architecture firm.",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-      year: "2022",
     },
   ];
 
