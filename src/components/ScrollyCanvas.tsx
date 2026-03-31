@@ -62,50 +62,30 @@ export default function ScrollyCanvas({
 
         if (img && img.complete) {
             const canvas = canvasRef.current;
-            // object-fit: cover logic for canvas
-            const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-            const x = (canvas.width / 2) - (img.width / 2) * scale;
-            const y = (canvas.height / 2) - (img.height / 2) * scale;
-
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.drawImage(img, x, y, img.width * scale, img.height * scale);
+            if (canvas.width !== img.width) canvas.width = img.width;
+            if (canvas.height !== img.height) canvas.height = img.height;
+            
+            context.drawImage(img, 0, 0);
         }
     });
 
     return () => unsubscribe();
   }, [frameIndex, images, frameCount]);
 
-  // Handle Canvas Resizing
+  // Initial draw once images are loaded so the screen isn't blank before scrolling
   useEffect(() => {
-      const handleResize = () => {
-          if (canvasRef.current) {
-               // Update internal canvas dimensions to match display size
-              canvasRef.current.width = window.innerWidth;
-              canvasRef.current.height = window.innerHeight;
-              
-              // Force a redraw of the current frame on resize
-               const currentFrameIndex = Math.floor(frameIndex.get());
-               const img = images[currentFrameIndex];
-               const context = canvasRef.current.getContext("2d");
-               
-               if (context && img && img.complete) {
-                   const canvas = canvasRef.current;
-                   const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-                   const x = (canvas.width / 2) - (img.width / 2) * scale;
-                   const y = (canvas.height / 2) - (img.height / 2) * scale;
-                   
-                   context.clearRect(0, 0, canvas.width, canvas.height);
-                   context.drawImage(img, x, y, img.width * scale, img.height * scale);
-               }
+      if (images.length === frameCount && images[0].complete && canvasRef.current) {
+          const canvas = canvasRef.current;
+          const context = canvas.getContext("2d");
+          if (context) {
+              if (canvas.width !== images[0].width) canvas.width = images[0].width;
+              if (canvas.height !== images[0].height) canvas.height = images[0].height;
+              context.drawImage(images[0], 0, 0);
           }
-      };
+      }
+  }, [images, frameCount]);
 
-      // Initial size
-      handleResize();
 
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-  }, [images, frameIndex]);
 
 
   return (
@@ -125,7 +105,7 @@ export default function ScrollyCanvas({
       )}
 
       {/* Sticky container that stays in view */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center">
         <canvas
           ref={canvasRef}
           className="h-full w-full object-cover"
