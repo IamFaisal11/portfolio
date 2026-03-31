@@ -21,14 +21,14 @@ export default function ProjectsGrid() {
       title: "Aura",
       category: "Mobile Application",
       description: "Mindfulness and meditation app featuring generative soundscapes.",
-      image: "https://images.unsplash.com/photo-1544377193-33dce4d68d0bf?q=80&w=2070&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=2070&auto=format&fit=crop",
       year: "2023",
     },
     {
       title: "The Vertex",
       category: "Marketing Site",
       description: "High-performance WebGL landing page for an architecture firm.",
-      image: "https://images.unsplash.com/photo-1506306548749-e362140a33a3?q=80&w=2102&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
       year: "2022",
     },
   ];

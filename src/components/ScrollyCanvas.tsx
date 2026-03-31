@@ -42,6 +42,11 @@ export default function ScrollyCanvas({
           loadedCount++;
           setImagesLoaded(loadedCount);
         };
+        img.onerror = () => {
+          console.error(`Failed to load image: ${url}`);
+          loadedCount++;
+          setImagesLoaded(loadedCount);
+        };
         loadedImages.push(img);
     }
     setImages(loadedImages);
@@ -91,15 +96,51 @@ export default function ScrollyCanvas({
   return (
     // 600vh container for the scrolling area to accommodate 4 sections
     <div ref={containerRef} className="relative h-[600vh] bg-[#121212]">
-      {/* Loading State Overlay */}
+      {/* Shimmer Loading Skeleton */}
       {imagesLoaded < frameCount && (
-          <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#121212] text-white">
-              <div className="text-xl tracking-widest font-light mb-4 text-white/80">LOADING ASSETS</div>
-              <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden">
-                  <div 
-                      className="h-full bg-white transition-all duration-300 ease-out"
-                      style={{ width: `${(imagesLoaded / frameCount) * 100}%` }}
-                  />
+          <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#121212] p-8 md:p-24 overflow-hidden">
+              <div className="w-full max-w-[1400px] h-full flex flex-col gap-12">
+                  {/* Hero Shimmer */}
+                  <div className="flex flex-col items-center gap-6 mt-[10%]">
+                      <div className="w-[300px] sm:w-[500px] h-12 md:h-20 bg-white/5 rounded-lg overflow-hidden relative">
+                          <motion.div 
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"
+                              animate={{ x: ["-100%", "200%"] }}
+                              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                          />
+                      </div>
+                      <div className="w-[150px] sm:w-[250px] h-4 md:h-6 bg-white/5 rounded-lg overflow-hidden relative">
+                          <motion.div 
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"
+                              animate={{ x: ["-100%", "200%"] }}
+                              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                          />
+                      </div>
+                  </div>
+
+                  {/* Sidebar/Content Shimmer */}
+                  <div className="flex flex-col gap-4 mt-12 w-full max-w-lg">
+                      {[1, 2, 3].map((i) => (
+                          <div key={i} className="w-full h-8 bg-white/5 rounded-lg overflow-hidden relative">
+                              <motion.div 
+                                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"
+                                  animate={{ x: ["-100%", "200%"] }}
+                                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.1 }}
+                              />
+                          </div>
+                      ))}
+                  </div>
+
+                  {/* Progress Bottom */}
+                  <div className="mt-auto flex flex-col items-center gap-4 py-12">
+                      <div className="w-64 h-[2px] bg-white/5 rounded-full overflow-hidden">
+                          <motion.div 
+                              className="h-full bg-white/40"
+                              style={{ width: `${(imagesLoaded / frameCount) * 100}%` }}
+                              transition={{ type: "spring", stiffness: 50 }}
+                          />
+                      </div>
+                  </div>
               </div>
           </div>
       )}
