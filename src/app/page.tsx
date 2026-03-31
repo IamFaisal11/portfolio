@@ -1,5 +1,6 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import ProjectsGrid from "@/components/Projects";
+import SkillsSection from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -15,6 +16,8 @@ export default function Home() {
         after the 500vh scroll sequence completes.
       */}
       <ProjectsGrid />
+      
+      <SkillsSection />
     </main>
   );
 }
