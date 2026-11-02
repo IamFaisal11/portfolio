@@ -147,9 +147,16 @@ export default function ScrollyCanvas({
 
       {/* Sticky container that stays in view */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center">
+        {/* Portrait still for mobile; the landscape frame sequence gets cropped badly there */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/hero-mobile.webp"
+          alt=""
+          className="h-full w-full object-cover object-top md:hidden"
+        />
         <canvas
           ref={canvasRef}
-          className="h-full w-full object-cover"
+          className="hidden h-full w-full object-cover md:block"
         />
         
         {/* Parallax Overlay Sections */}
