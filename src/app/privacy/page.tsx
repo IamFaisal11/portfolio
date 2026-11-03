@@ -37,6 +37,12 @@ export default function Privacy() {
         </li>
         <li>You can also block or delete cookies in your browser settings.</li>
       </ul>
+      <p>
+        This site also uses Monetag, an advertising network, to show ads and notifications. Monetag may use cookies,
+        device identifiers and similar technologies to deliver and measure ads, and may send you push notifications if
+        you choose to allow them. You can block or remove these in your browser settings, including notification
+        permissions for this site.
+      </p>
       <h2>Third-party links</h2>
       <p>
         Pages on this site may link to other websites, such as GitHub. I am not responsible for how those sites handle

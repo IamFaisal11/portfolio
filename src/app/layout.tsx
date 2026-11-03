@@ -40,6 +40,12 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4653800983430354"
           crossOrigin="anonymous"
         />
+        <script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="305180"
+          async
+          data-cfasync="false"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         {children}
